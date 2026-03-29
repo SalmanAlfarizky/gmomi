@@ -52,6 +52,21 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
+        .timeline-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3b82f6, #a78bfa, transparent);
+            position: relative;
+        }
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            position: absolute;
+            top: -5px;
+            box-shadow: 0 0 15px #3b82f6;
+        }
+
         .lecturer-img-container {
             background: #e5e7eb; border-radius: 2rem 2rem 0 0;
             overflow: hidden; aspect-ratio: 4/5; position: relative;
@@ -157,25 +172,30 @@
                 </p>
             </div>
 
+            <!-- SECTION: HISTORY (OPTIMIZED FOR NEW DESIGN) -->
+            <div class="mb-24 reveal">
+                <h2 class="text-white text-2xl font-bold mb-10 flex items-center gap-3">
+                    <span class="w-6 h-[2px] bg-blue-500"></span> History
+                </h2>
+                <div class="max-w-4xl mx-auto px-4">
+                    <div class="timeline-line mb-6">
+                        <div class="timeline-dot" style="left: 0%;"></div>
+                        <div class="timeline-dot" style="right: 0%;"></div>
+                    </div>
+                    <div class="flex justify-between text-xs md:text-sm tracking-wide">
+                        <div class="w-1/2 pr-4">
+                            <p class="text-gray-400 uppercase font-bold text-[10px] mb-1">Establishment</p>
+                            <p class="text-white leading-relaxed">Since 2024 Oxlab at Media Production Universitas Indonesia</p>
+                        </div>
+                        <div class="w-1/2 text-right pl-4">
+                            <p class="text-gray-400 uppercase font-bold text-[10px] mb-1">Recognition</p>
+                            <p class="text-white leading-relaxed">2025 Won Studio of The Year</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- COLLAB & ACHIEVE -->
-             <!-- Section: History -->
-    <section class="mb-16">
-        <h2 class="text-3xl font-serif mb-12">History</h2>
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="timeline-line mb-4">
-                <div class="timeline-dot" style="left: 0%;"></div>
-                <div class="timeline-dot" style="right: 0%;"></div>
-            </div>
-            <div class="flex justify-between text-sm md:text-base">
-                <div class="w-1/3">
-                    <p class="font-bold">Since 2024 Oxlab at Media Production Universitas Indonesia</p>
-                </div>
-                <div class="w-1/3 text-right">
-                    <p class="font-bold">2025 won studio of the year</p>
-                </div>
-            </div>
-        </div>
-    </section>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
                 <div class="glass-card rounded-[2rem] p-8 reveal">
                     <h2 class="text-white text-2xl font-bold mb-6 flex items-center gap-3"><span class="w-6 h-[2px] bg-blue-500"></span> Collaboration</h2>
@@ -194,7 +214,7 @@
                 </div>
             </div>
 
-            <!-- LECTURERS (7 DOSEN) -->
+            <!-- LECTURERS -->
             <div id="lecturers" class="py-20 border-t border-white/5 reveal">
                 <h2 class="text-white text-4xl font-bold mb-16 text-center">Tenaga Pengajar Profesional</h2>
                 <div class="flex flex-col items-center gap-10">
@@ -217,7 +237,7 @@
                 </div>
             </div>
 
-            <!-- OUR WORK (3 GRID SESUAI PERMINTAAN) -->
+            <!-- OUR WORK -->
             <div id="our-work" class="py-32 border-t border-white/5 reveal">
                 <h2 class="text-white text-5xl font-bold mb-16 text-center">Our Work</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
