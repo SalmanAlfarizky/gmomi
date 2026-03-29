@@ -139,17 +139,17 @@
         <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
     </section>
     
-     <!-- ========================================= -->
-    <!-- HALAMAN 3: ABOUT US (SESUAI REFERENSI Tanpa Footer Logo) -->
+    <!-- ========================================= -->
+    <!-- HALAMAN 3: ABOUT US -->
     <!-- ========================================= -->
     <section id="about-us" class="min-h-screen bg-black flex flex-col items-center">
-        <!-- GAMBAR HEADER LANDSCAPE (Top Section) -->
-        <div class="w-full relative h-[40vh] md:h-[60vh] overflow-hidden">
-            <img src="c99813b3-8f86-4f57-8ee4-73a50f2cae21 1.jpg" alt="Background Header" class="w-full h-full object-cover object-top">
-            <!-- Overlay Gradient untuk menyatukan dengan konten bawah -->
+        <!-- GAMBAR HEADER LANDSCAPE -->
+        <div class="w-full relative h-[45vh] md:h-[65vh] overflow-hidden">
+            <img src="image/bg-kakek.png" alt="Background Header" class="w-full h-full object-cover object-top">
+            <!-- Overlay Gradient -->
             <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
             
-            <!-- Logo Floating di Atas (Logo Header Tetap Ada) -->
+            <!-- Logo Header -->
             <div class="absolute top-6 left-6 flex gap-4 items-center scale-90 md:scale-100">
                 <div class="bg-white p-2 rounded flex items-center gap-2 h-10">
                    <img src="image/logo-ui.png" alt="Logo UI" class="h-6">
@@ -157,57 +157,65 @@
                    <img src="image/Logo OX-Lab.png" alt="Logo OX-Lab" class="h-6">
                 </div>
             </div>
-            <!-- Logo Polar di Atas Kanan Header -->
             <div class="absolute top-6 right-6">
                  <img src="image/logo-polar.png" alt="Polar Logo" class="h-10 opacity-80">
             </div>
         </div>
 
-        <!-- KONTEN TEKS (Section Bawah) -->
-        <div class="max-w-4xl w-full px-8 pb-24 -mt-10 relative z-10 text-left">
+        <!-- KONTEN TEKS -->
+        <div class="max-w-4xl w-full px-8 pb-24 -mt-16 relative z-10 text-left">
             <div class="mb-12">
                 <span class="text-gray-400 text-lg">about</span>
-                <h1 class="text-white text-5xl md:text-6xl font-bold tracking-tight mt-1">OX LAB</h1>
+                <h1 class="text-white text-5xl md:text-7xl font-bold tracking-tight mt-1">OX LAB</h1>
             </div>
 
-            <div class="space-y-12">
+            <div class="space-y-16">
                 <!-- Deskripsi -->
-                <p class="text-gray-300 text-base md:text-lg leading-relaxed max-w-3xl">
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed max-w-3xl font-light">
                     Pengembangan Game merupakan konsentrasi di jurusan Produksi Media UI yang fokus mempelajari industri game secara keseluruhan. Mulai dari Game Development, Game Marketing, hingga Game Publishing. Dalam menunjang kegiatan pembelajaran agar lebih efektif, kami diajarkan langsung oleh para praktisi di industri game yang tentu ahli dalam bidangnya.
                 </p>
 
                 <!-- History / Timeline Section -->
-                <div>
-                    <h2 class="text-white text-3xl font-bold mb-8">History</h2>
-                    <div class="relative flex items-center justify-between gap-4 max-w-2xl">
-                        <!-- Timeline Line Background -->
-                        <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-800 -translate-y-1/2"></div>
+                <div class="pt-4">
+                    <h2 class="text-white text-4xl font-bold mb-12">History</h2>
+                    
+                    <div class="relative w-full max-w-2xl">
+                        <!-- Garis Horizontal Terpusat -->
+                        <div class="absolute top-[7px] left-0 w-full h-[2px] bg-gray-800"></div>
                         
-                        <!-- Point 1 -->
-                        <div class="relative z-10 flex flex-col items-start w-1/2">
-                            <div class="timeline-dot mb-4 shadow-[0_0_15px_rgba(74,114,194,0.5)]"></div>
-                            <p class="text-white text-sm font-semibold leading-snug">
-                                Since 2024 Oxlab at Media Production Universitas Indonesia
-                            </p>
-                        </div>
+                        <div class="flex justify-between relative">
+                            <!-- Point 1 -->
+                            <div class="flex flex-col items-start w-1/2 relative">
+                                <!-- Titik Sejajar Garis -->
+                                <div class="timeline-dot bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)] mb-6"></div>
+                                <div class="pr-6">
+                                    <p class="text-white text-sm md:text-base font-semibold leading-snug">
+                                        Since 2024 Oxlab at Media Production Universitas Indonesia
+                                    </p>
+                                </div>
+                            </div>
 
-                        <!-- Point 2 -->
-                        <div class="relative z-10 flex flex-col items-end text-right w-1/2">
-                            <div class="timeline-dot mb-4 bg-purple-600 shadow-[0_0_15px_rgba(147,51,234,0.5)]"></div>
-                            <p class="text-white text-sm font-semibold leading-snug">
-                                2025 won studio of the year
-                            </p>
+                            <!-- Point 2 -->
+                            <div class="flex flex-col items-end w-1/2 relative text-right">
+                                <!-- Titik Sejajar Garis -->
+                                <div class="timeline-dot bg-purple-600 shadow-[0_0_15px_rgba(147,51,234,0.6)] mb-6"></div>
+                                <div class="pl-6">
+                                    <p class="text-white text-sm md:text-base font-semibold leading-snug">
+                                        2025 won studio of the year
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Tombol Navigasi Kembali -->
-            <div class="mt-24 flex gap-4 pt-10 border-t border-white/5">
-                <button onclick="scrollToMenu()" class="px-8 py-2 bg-white/5 text-white rounded-full font-medium hover:bg-white/10 transition border border-white/20 text-xs uppercase tracking-widest">
+            <div class="mt-28 flex gap-6 pt-12 border-t border-white/10">
+                <button onclick="scrollToMenu()" class="px-8 py-2.5 bg-white/5 text-white rounded-full font-medium hover:bg-white/10 transition border border-white/20 text-[10px] uppercase tracking-[0.2em]">
                     Back to Menu
                 </button>
-                <button onclick="scrollToTop()" class="px-8 py-2 bg-blue-600/20 text-blue-400 rounded-full font-medium hover:bg-blue-600/30 transition border border-blue-500/30 text-xs uppercase tracking-widest">
+                <button onclick="scrollToTop()" class="px-8 py-2.5 bg-blue-600/10 text-blue-400 rounded-full font-medium hover:bg-blue-600/20 transition border border-blue-500/20 text-[10px] uppercase tracking-[0.2em]">
                     Back to Hero
                 </button>
             </div>
@@ -227,7 +235,6 @@
             document.getElementById('about-us').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Efek reveal sederhana saat scroll
         window.addEventListener('scroll', () => {
             const reveals = document.querySelectorAll('.reveal');
             reveals.forEach(reveal => {
