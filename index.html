@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desain Web OX-Lab</title>
+    <title>Desain Web OX-Lab - Premium Edition</title>
     <!-- Menggunakan Tailwind CSS untuk styling yang responsif -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Menggunakan Google Fonts -->
@@ -12,6 +12,14 @@
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
+            background-color: black;
+            color: white;
+        }
+
+        /* Custom Selection Color */
+        ::selection {
+            background: rgba(74, 114, 194, 0.4);
+            color: white;
         }
         
         /* Gradient Background Halaman 1 */
@@ -19,71 +27,131 @@
             background: linear-gradient(180deg, #D6A6C0 0%, #4A72C2 50%, #2E3A8C 100%);
         }
 
+        /* Mesh Gradient Background (Elemen Elegan) */
+        .mesh-gradient {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .mesh-ball {
+            position: absolute;
+            filter: blur(100px);
+            border-radius: 50%;
+            animation: float-mesh 20s infinite alternate;
+        }
+
+        @keyframes float-mesh {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 15%) scale(1.2); }
+        }
+
         /* Efek hover untuk kartu di Halaman 2 */
         .menu-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            backdrop-filter: blur(8px);
         }
         .menu-card:hover {
-            transform: translateY(-12px);
-            background-color: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-15px);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        .menu-card:hover .icon-box {
-            transform: scale(1.1);
-            background-color: rgba(255, 255, 255, 0.15);
+        /* Animasi Floating Logo */
+        .floating-logo {
+            animation: floating 6s ease-in-out infinite;
         }
 
-        /* Animasi fade in sederhana */
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Scroll Reveal Effect */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Gaya Khusus Timeline */
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* List Item Icon (Bintang Kuning) dengan Glow */
+        .list-star::before {
+            content: "✦";
+            color: #fbbf24;
+            margin-right: 12px;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
+        }
+
+        /* Glassmorphism Premium */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: border 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
     </style>
 </head>
-<body class="bg-black text-gray-800">
+<body class="bg-black">
 
     <!-- ========================================= -->
     <!-- HALAMAN 1: HERO SECTION -->
     <!-- ========================================= -->
     <section id="beranda" class="gradient-bg relative min-h-screen flex flex-col justify-between overflow-hidden">
         <div class="pt-8 px-6 md:pt-10 md:px-10 flex justify-between items-center z-20">
-            <!-- Logo Instansi di Kiri Atas (Logo UI & Logo OX-Lab) -->
-            <div class="h-14 md:h-16 bg-white/30 backdrop-blur-md border border-white/40 shadow-lg flex items-center justify-center rounded-xl p-2 px-4 gap-3">
+            <!-- Logo Instansi -->
+            <div class="h-14 md:h-16 bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl flex items-center justify-center rounded-2xl p-2 px-4 gap-3">
                 <div class="h-full flex items-center justify-center">
-                    <!-- Logo Kiri 1 -->
                     <img src="image/logo-ui.png" alt="Logo UI" class="max-h-full w-auto object-contain">
                 </div>
-                <div class="w-px h-2/3 bg-white/50"></div>
+                <div class="w-px h-2/3 bg-white/30"></div>
                 <div class="h-full flex items-center justify-center">
-                    <!-- Logo Kiri 2 -->
                     <img src="image/Logo OX-Lab.png" alt="Logo OX-Lab" class="max-h-full w-auto object-contain">
                 </div>
             </div>
             
-            <!-- Ikon Beruang / Logo Polar di Kanan Atas -->
+            <!-- Logo Polar -->
             <div class="flex items-center">
-                <img src="image/logo-polar.png" alt="Polar Logo" class="w-28 h-28 md:w-28 md:h-28 object-contain drop-shadow-md">
+                <img src="image/logo-polar.png" alt="Polar Logo" class="w-28 h-28 md:w-28 md:h-28 object-contain drop-shadow-2xl opacity-90">
             </div>
         </div>
 
+        <!-- AREA TENGAH: LOGO UTAMA -->
         <div class="flex-grow flex flex-col items-center justify-center z-10 text-center px-4">
-            <div class="relative group transform hover:scale-105 transition duration-500 ease-in-out">
-                <!-- Logo Tengah Gede -->
-                <img src="image/7fecb108-1b64-42f5-bd89-6a237e50457e-removebg-preview 1.png" alt="OX-Logo Utama" class="w-72 h-72 md:w-[500px] md:h-[500px] object-contain filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+            <div class="relative floating-logo">
+                <img src="image/7fecb108-1b64-42f5-bd89-6a237e50457e-removebg-preview 1.png" alt="OX-Logo Utama" class="relative z-10 w-64 h-64 md:w-[520px] md:h-[520px] object-contain filter drop-shadow-[0_0_80px_rgba(255,255,255,0.2)]">
             </div>
         </div>
 
         <div class="pb-16 flex justify-center z-10 px-4">
-            <button onclick="scrollToMenu()" class="flex flex-col items-center gap-2 focus:outline-none group">
-                <div class="px-12 py-4 bg-white text-[#2E3A8C] rounded-full shadow-2xl transition-all duration-300 transform group-hover:-translate-y-1 group-hover:shadow-lg active:scale-95">
-                    <span class="text-base md:text-lg font-bold tracking-wide">Click for more!</span>
+            <button onclick="scrollToMenu()" class="group relative flex flex-col items-center gap-2 focus:outline-none">
+                <div class="absolute -inset-1 bg-white rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                <div class="relative px-14 py-4 bg-white text-[#2E3A8C] rounded-full shadow-2xl transition-all duration-300 transform group-hover:scale-105 active:scale-95">
+                    <span class="text-base md:text-lg font-bold tracking-widest uppercase">Explore More</span>
                 </div>
             </button>
         </div>
@@ -92,131 +160,178 @@
     <!-- ========================================= -->
     <!-- HALAMAN 2: MENU UTAMA -->
     <!-- ========================================= -->
-    <section id="menu-utama" class="min-h-screen bg-[#0F172A] flex flex-col items-center justify-center py-20 px-6 relative">
-        <div class="text-center mb-16 z-10">
-            <h2 class="text-white text-4xl md:text-5xl font-bold tracking-tight mb-4">Pilih Menu Utama</h2>
-            <div class="w-24 h-1.5 bg-blue-500 mx-auto rounded-full"></div>
+    <section id="menu-utama" class="min-h-screen bg-[#020617] flex flex-col items-center justify-center py-24 px-6 relative overflow-hidden">
+        <!-- Mesh Background Elements -->
+        <div class="mesh-gradient">
+            <div class="mesh-ball w-[600px] h-[600px] bg-blue-900/30 -top-20 -left-20"></div>
+            <div class="mesh-ball w-[500px] h-[500px] bg-purple-900/20 bottom-0 right-0" style="animation-delay: -5s;"></div>
+        </div>
+
+        <div class="text-center mb-20 z-10 reveal">
+            <p class="text-blue-400 text-sm font-bold tracking-[0.4em] uppercase mb-4">Discovery</p>
+            <h2 class="text-white text-5xl md:text-6xl font-bold tracking-tight">Pilih Menu Utama</h2>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl w-full z-10">
-            <!-- Menu 1: About Us -->
-            <div onclick="scrollToAbout()" class="menu-card bg-white/5 border border-white/10 rounded-[2.5rem] p-10 flex flex-col items-center text-center cursor-pointer">
-                <div class="icon-box w-20 h-20 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-8 transition-transform duration-300">
-                    <svg class="w-10 h-10 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <!-- Menu Cards dengan Stagger Animation -->
+            <div onclick="scrollToAbout()" class="menu-card bg-white/5 border border-white/10 rounded-[3rem] p-12 flex flex-col items-center text-center cursor-pointer reveal" style="transition-delay: 0.1s;">
+                <div class="w-20 h-20 bg-blue-500/10 rounded-3xl flex items-center justify-center mb-10 border border-blue-500/20">
+                    <svg class="w-10 h-10 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
-                <h3 class="text-white text-2xl font-bold mb-3">About Us</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Informasi lengkap tentang profil dan visi misi kami.</p>
+                <h3 class="text-white text-2xl font-bold mb-4">About Us</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Profil dan perjalanan kreatif studio kami.</p>
             </div>
 
-            <!-- Menu 2: Polar -->
-            <div class="menu-card bg-white/5 border border-white/10 rounded-[2.5rem] p-10 flex flex-col items-center text-center cursor-pointer">
-                <div class="icon-box w-20 h-20 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-8 transition-transform duration-300">
+            <div class="menu-card bg-white/5 border border-white/10 rounded-[3rem] p-12 flex flex-col items-center text-center cursor-pointer reveal" style="transition-delay: 0.2s;">
+                <div class="w-20 h-20 bg-purple-500/10 rounded-3xl flex items-center justify-center mb-10 border border-purple-500/20">
                     <img src="image/logo-polar.png" alt="Polar" class="w-12 h-12">
                 </div>
-                <h3 class="text-white text-2xl font-bold mb-3">Polar</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Sistem integrasi data yang cerdas dan efisien.</p>
+                <h3 class="text-white text-2xl font-bold mb-4">Polar</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">punya rangga.</p>
             </div>
 
-            <!-- Menu 3: Project -->
-            <div class="menu-card bg-white/5 border border-white/10 rounded-[2.5rem] p-10 flex flex-col items-center text-center cursor-pointer">
-                <div class="icon-box w-20 h-20 bg-emerald-500/20 rounded-2xl flex items-center justify-center mb-8 transition-transform duration-300">
-                    <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+            <div class="menu-card bg-white/5 border border-white/10 rounded-[3rem] p-12 flex flex-col items-center text-center cursor-pointer reveal" style="transition-delay: 0.3s;">
+                <div class="w-20 h-20 bg-emerald-500/10 rounded-3xl flex items-center justify-center mb-10 border border-emerald-500/20">
+                    <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
                 </div>
-                <h3 class="text-white text-2xl font-bold mb-3">Project</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Kumpulan hasil karya dan inovasi terbaru dari tim.</p>
+                <h3 class="text-white text-2xl font-bold mb-4">Project</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Karya inovatif yang kami banggakan.</p>
             </div>
 
-            <!-- Menu 4: Contact -->
-            <div class="menu-card bg-white/5 border border-white/10 rounded-[2.5rem] p-10 flex flex-col items-center text-center cursor-pointer">
-                <div class="icon-box w-20 h-20 bg-pink-500/20 rounded-2xl flex items-center justify-center mb-8 transition-transform duration-300">
-                    <svg class="w-10 h-10 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <div class="menu-card bg-white/5 border border-white/10 rounded-[3rem] p-12 flex flex-col items-center text-center cursor-pointer reveal" style="transition-delay: 0.4s;">
+                <div class="w-20 h-20 bg-pink-500/10 rounded-3xl flex items-center justify-center mb-10 border border-pink-500/20">
+                    <svg class="w-10 h-10 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
-                <h3 class="text-white text-2xl font-bold mb-3">Contact</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Hubungi kami untuk kolaborasi atau bantuan teknis.</p>
+                <h3 class="text-white text-2xl font-bold mb-4">Contact</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Mari terhubung dan buat sesuatu yang luar biasa.</p>
             </div>
         </div>
-
-        <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
     </section>
-    
+
     <!-- ========================================= -->
     <!-- HALAMAN 3: ABOUT US -->
     <!-- ========================================= -->
-    <section id="about-us" class="min-h-screen bg-black flex flex-col items-center">
+    <section id="about-us" class="min-h-screen bg-black flex flex-col items-center relative overflow-hidden">
+        
+        <!-- Background Glow -->
+        <div class="absolute top-1/4 right-0 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[150px] pointer-events-none"></div>
+
         <!-- GAMBAR HEADER LANDSCAPE -->
-        <div class="w-full relative h-[45vh] md:h-[65vh] overflow-hidden">
-            <img src="image/kakekk.png" alt="Background Header" class="w-full h-full object-cover object-top">
-            <!-- Overlay Gradient -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        <div class="w-full relative h-[50vh] md:h-[70vh] overflow-hidden">
+            <img src="c99813b3-8f86-4f57-8ee4-73a50f2cae21 1.jpg" alt="Background Header" class="w-full h-full object-cover object-top scale-105 hover:scale-110 transition duration-[3s] ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
             
             <!-- Logo Header -->
-            <div class="absolute top-6 left-6 flex gap-4 items-center scale-90 md:scale-100">
-                <div class="bg-white p-2 rounded flex items-center gap-2 h-10">
-                   <img src="image/logo-ui.png" alt="Logo UI" class="h-6">
-                   <div class="w-px h-full bg-gray-300 mx-1"></div>
-                   <img src="image/Logo OX-Lab.png" alt="Logo OX-Lab" class="h-6">
+            <div class="absolute top-8 left-8 flex gap-4 items-center">
+                <div class="bg-white/10 backdrop-blur-md p-2.5 rounded-xl flex items-center gap-3 h-12 border border-white/20">
+                   <img src="image/logo-ui.png" alt="Logo UI" class="h-7">
+                   <div class="w-px h-full bg-white/20 mx-1"></div>
+                   <img src="image/kakekk.png" alt="Logo OX-Lab" class="h-7">
                 </div>
             </div>
-            <div class="absolute top-6 right-6">
-                 <img src="image/logo-polar.png" alt="Polar Logo" class="h-10 opacity-80">
+            <div class="absolute top-8 right-8">
+                 <img src="image/logo-polar.png" alt="Polar Logo" class="h-28 opacity-80 drop-shadow-xl">
             </div>
         </div>
 
         <!-- KONTEN TEKS -->
-        <div class="max-w-4xl w-full px-8 pb-24 -mt-16 relative z-10 text-left">
-            <div class="mb-12">
-                <span class="text-gray-400 text-lg">about</span>
-                <h1 class="text-white text-5xl md:text-7xl font-bold tracking-tight mt-1">OX LAB</h1>
+        <div class="max-w-5xl w-full px-8 pb-32 -mt-24 relative z-10 text-left">
+            <div class="mb-16 reveal">
+                <span class="text-blue-500 font-bold tracking-[0.3em] uppercase text-sm">Our Identity</span>
+                <h1 class="text-white text-6xl md:text-8xl font-bold tracking-tighter mt-2">OX LAB</h1>
             </div>
 
-            <div class="space-y-16">
+            <div class="space-y-24">
                 <!-- Deskripsi -->
-                <p class="text-gray-300 text-base md:text-lg leading-relaxed max-w-3xl font-light">
-                    Pengembangan Game merupakan konsentrasi di jurusan Produksi Media UI yang fokus mempelajari industri game secara keseluruhan. Mulai dari Game Development, Game Marketing, hingga Game Publishing. Dalam menunjang kegiatan pembelajaran agar lebih efektif, kami diajarkan langsung oleh para praktisi di industri game yang tentu ahli dalam bidangnya.
+                <p class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-4xl font-light reveal">
+                    Pengembangan Game merupakan konsentrasi di jurusan <span class="text-white font-medium">Produksi Media UI</span> yang fokus mempelajari industri game secara keseluruhan. Mulai dari Game Development, Game Marketing, hingga Game Publishing. Kami dibimbing langsung oleh praktisi terbaik untuk melahirkan inovasi digital.
                 </p>
 
                 <!-- History / Timeline Section -->
-                <div class="pt-4">
-                    <h2 class="text-white text-4xl font-bold mb-12">History</h2>
+                <div class="pt-8 reveal">
+                    <h2 class="text-white text-4xl font-bold mb-14 tracking-tight">Perjalanan Kami</h2>
                     
-                    <div class="relative w-full max-w-2xl">
-                        <!-- Garis Horizontal Terpusat -->
-                        <div class="absolute top-[7px] left-0 w-full h-[2px] bg-gray-800"></div>
+                    <div class="relative w-full max-w-3xl">
+                        <div class="absolute top-[7px] left-0 w-full h-[1px] bg-gradient-to-r from-blue-500 via-purple-500 to-transparent opacity-30"></div>
                         
                         <div class="flex justify-between relative">
-                            <!-- Point 1 -->
                             <div class="flex flex-col items-start w-1/2 relative">
-                                <!-- Titik Sejajar Garis -->
-                                <div class="timeline-dot bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)] mb-6"></div>
-                                <div class="pr-6">
-                                    <p class="text-white text-sm md:text-base font-semibold leading-snug">
-                                        Since 2024 Oxlab at Media Production Universitas Indonesia
+                                <div class="timeline-dot bg-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.8)] mb-8"></div>
+                                <div class="pr-8">
+                                    <span class="text-blue-400 text-xs font-bold uppercase tracking-widest block mb-2">2024</span>
+                                    <p class="text-white text-base font-semibold leading-relaxed">
+                                        Didirikan di bawah naungan Produksi Media Universitas Indonesia.
                                     </p>
                                 </div>
                             </div>
 
-                            <!-- Point 2 -->
                             <div class="flex flex-col items-end w-1/2 relative text-right">
-                                <!-- Titik Sejajar Garis -->
-                                <div class="timeline-dot bg-purple-600 shadow-[0_0_15px_rgba(147,51,234,0.6)] mb-6"></div>
-                                <div class="pl-6">
-                                    <p class="text-white text-sm md:text-base font-semibold leading-snug">
-                                        2025 won studio of the year
+                                <div class="timeline-dot bg-purple-600 shadow-[0_0_20px_rgba(147,51,234,0.8)] mb-8"></div>
+                                <div class="pl-8">
+                                    <span class="text-purple-400 text-xs font-bold uppercase tracking-widest block mb-2">2025</span>
+                                    <p class="text-white text-base font-semibold leading-relaxed">
+                                        Meraih penghargaan bergengsi "Won Studio of the Year".
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Collaboration & Achievement -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-10">
+                    <!-- Collaboration -->
+                    <div class="flex flex-col reveal" style="transition-delay: 0.2s;">
+                        <h2 class="text-white text-3xl font-bold mb-10 tracking-tight flex items-center gap-3">
+                            <span class="w-8 h-[2px] bg-blue-500"></span> Collaboration
+                        </h2>
+                        <div class="glass-card rounded-[2.5rem] p-10 h-full shadow-2xl">
+                            <ul class="space-y-5 text-gray-400 text-base">
+                                <li class="list-star flex items-start hover:text-white transition">Agate Studios</li>
+                                <li class="list-star flex items-start hover:text-white transition">Asosiasi Game Indonesia</li>
+                                <li class="list-star flex items-start hover:text-white transition">IISART</li>
+                                <li class="list-star flex items-start hover:text-white transition">Extra Life Entertainment</li>
+                                <li class="list-star flex items-start hover:text-white transition">Visual Darts</li>
+                                <li class="list-star flex items-start hover:text-white transition">Faber-Castell Internship</li>
+                                <li class="list-star flex items-start hover:text-white transition">Aim to Mite Studios</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Achievement -->
+                    <div class="flex flex-col reveal" style="transition-delay: 0.4s;">
+                        <h2 class="text-white text-3xl font-bold mb-10 tracking-tight flex items-center gap-3">
+                            <span class="w-8 h-[2px] bg-purple-500"></span> Achievement
+                        </h2>
+                        <div class="glass-card rounded-[2.5rem] p-10 h-full shadow-2xl">
+                            <ul class="space-y-8 text-gray-400 text-base">
+                                <li class="list-star flex flex-col gap-1">
+                                    <span class="text-white font-bold">Finalist Game Jam Plus 2025</span>
+                                    <span class="text-sm opacity-60 italic">Kompetisi Game Global - Indonesia Stage</span>
+                                </li>
+                                <li class="list-star flex flex-col gap-1">
+                                    <span class="text-white font-bold">Unity Certified Developer</span>
+                                    <span class="text-sm opacity-60 italic">Sertifikasi Industri Professional</span>
+                                </li>
+                                <li class="list-star flex flex-col gap-1">
+                                    <span class="text-white font-bold">Unity Certified Programmer</span>
+                                    <span class="text-sm opacity-60 italic">Keahlian Pemrograman Game Standar Dunia</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Tombol Navigasi Kembali -->
-            <div class="mt-28 flex gap-6 pt-12 border-t border-white/10">
-                <button onclick="scrollToMenu()" class="px-8 py-2.5 bg-white/5 text-white rounded-full font-medium hover:bg-white/10 transition border border-white/20 text-[10px] uppercase tracking-[0.2em]">
-                    Back to Menu
+            <div class="mt-40 flex flex-wrap gap-6 pt-16 border-t border-white/5 reveal">
+                <button onclick="scrollToMenu()" class="group relative px-10 py-3.5 bg-white/5 text-white rounded-full font-bold overflow-hidden transition border border-white/10 text-[11px] uppercase tracking-[0.3em]">
+                    <span class="relative z-10">Back to Menu</span>
+                    <div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </button>
-                <button onclick="scrollToTop()" class="px-8 py-2.5 bg-blue-600/10 text-blue-400 rounded-full font-medium hover:bg-blue-600/20 transition border border-blue-500/20 text-[10px] uppercase tracking-[0.2em]">
-                    Back to Hero
+                <button onclick="scrollToTop()" class="group relative px-10 py-3.5 bg-blue-600/10 text-blue-400 rounded-full font-bold overflow-hidden transition border border-blue-500/20 text-[11px] uppercase tracking-[0.3em]">
+                    <span class="relative z-10">Back to Hero</span>
+                    <div class="absolute inset-0 bg-blue-600/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </button>
             </div>
         </div>
@@ -235,16 +350,21 @@
             document.getElementById('about-us').scrollIntoView({ behavior: 'smooth' });
         }
 
-        window.addEventListener('scroll', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(reveal => {
-                const windowHeight = window.innerHeight;
-                const revealTop = reveal.getBoundingClientRect().top;
-                if (revealTop < windowHeight - 100) {
-                    reveal.classList.add('active');
+        // Improved Intersection Observer untuk Reveal Effect
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
                 }
             });
-        });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
