@@ -7,7 +7,7 @@
     <!-- Menggunakan Tailwind CSS untuk styling yang responsif -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Menggunakan Google Fonts agar mendekati referensi -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -19,53 +19,48 @@
             background: linear-gradient(180deg, #D6A6C0 0%, #4A72C2 50%, #2E3A8C 100%);
         }
 
-        /* Elemen 3D logo dengan warna biru palet */
-        .logo-circle-inner {
-            background: linear-gradient(135deg, #5C88E5 0%, #1E2A78 100%);
+        /* Menghaluskan tampilan font untuk branding */
+        .font-inter {
+            font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
     <!-- ========================================= -->
-    <!-- TAMPILAN AWAL (HERO) - SESUAI PALET WARNA -->
+    <!-- TAMPILAN AWAL (HERO) - TANPA LINGKARAN -->
     <!-- ========================================= -->
     <section id="beranda" class="gradient-bg relative min-h-screen flex flex-col justify-between overflow-hidden">
         
         <!-- BAGIAN ATAS: LOGO DAN BRANDING -->
-        <div class="pt-8 px-6 md:pt-12 md:px-12 flex justify-between items-start z-20">
+        <div class="pt-8 px-6 md:pt-10 md:px-10 flex justify-between items-center z-20">
             
             <!-- Logo Kotak di Kiri Atas -->
-            <div class="w-24 h-12 md:w-28 md:h-14 bg-white/30 backdrop-blur-sm border border-white/40 shadow-lg flex items-center justify-center rounded-lg p-2 gap-2">
+            <div class="w-28 h-14 md:w-36 md:h-16 bg-white/30 backdrop-blur-md border border-white/40 shadow-lg flex items-center justify-center rounded-xl p-2 gap-3">
                 <div class="w-1/2 h-full flex items-center justify-center">
-                    <img src="https://via.placeholder.com/60x60.png?text=Logo" alt="Logo Instansi" class="max-h-full object-contain">
+                    <img src="https://via.placeholder.com/80x80.png?text=Logo" alt="Logo Instansi" class="max-h-full object-contain">
                 </div>
                 <div class="w-px h-2/3 bg-white/50"></div>
                 <div class="w-1/2 h-full flex items-center justify-center">
-                    <img src="https://via.placeholder.com/60x60.png?text=OX" alt="OX Lab" class="max-h-full object-contain">
+                    <img src="https://via.placeholder.com/80x80.png?text=OX" alt="OX Lab" class="max-h-full object-contain">
                 </div>
             </div>
 
-        
-                <!-- Ikon Beruang (Biru Tua sesuai palet) -->
-                <img src="image/logo-polar.png" alt="Bear Icon" class="w-18 h-18 object-contain">
+            <!-- Ikon Beruang di Kanan Atas -->
+            <div class="flex items-center">
+                <img src="https://img.icons8.com/fluency-systems-filled/96/ffffff/polar-bear.png" alt="Bear Icon" class="w-8 h-8 md:w-12 md:h-12 object-contain drop-shadow-md opacity-90">
             </div>
 
         </div>
 
-        <!-- BAGIAN TENGAH: LOGO LINGKARAN BESAR -->
-        <div class="flex-grow flex flex-col items-center justify-center z-10 text-center px-4 mb-20">
+        <!-- BAGIAN TENGAH: LOGO UTAMA SAJA -->
+        <div class="flex-grow flex flex-col items-center justify-center z-10 text-center px-4">
             
-            <!-- AREA LOGO TENGAH DENGAN WARNA PALET -->
+            <!-- AREA LOGO TENGAH (LINGKARAN DIHAPUS) -->
             <div class="relative group transform hover:scale-105 transition duration-500 ease-in-out">
-                <!-- Bayangan lebih dalam -->
-                <div class="absolute inset-0 bg-[#161B40] opacity-50 rounded-full blur-2xl transform translate-y-4"></div>
-                
-                <!-- Lingkaran Luar -->
-
-                    <!-- Ikon Logo OX-Lab Putih -->
-                    <img src="image/7fecb108-1b64-42f5-bd89-6a237e50457e-removebg-preview 1.png" alt="OX-Lab Logo" class="w-128 h-128 object-contain">
-                </div>
+                <!-- Ikon Logo OX-Lab Putih (Dibuat besar langsung tanpa bingkai) -->
+                <!-- Ukuran disesuaikan agar tetap dominan di tengah layar -->
+                <img src="https://via.placeholder.com/600.png?text=OX-Logo&textcolor=fff" alt="OX-Logo Utama" class="w-64 h-64 md:w-[480px] md:h-[480px] object-contain filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
             </div>
 
         </div>
@@ -73,27 +68,23 @@
         <!-- BAGIAN BAWAH: TOMBOL "CLICK FOR MORE!" -->
         <div class="pb-16 flex justify-center z-10 px-4">
             <button onclick="scrollToNext()" class="flex flex-col items-center gap-2 focus:outline-none">
-                <!-- Bubble Text Putih sesuai referensi -->
-                <div class="px-10 py-3 bg-white text-[#2E3A8C] rounded-full shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg active:scale-95">
-                    <span class="text-sm md:text-base font-bold tracking-wide">Click for more!</span>
+                <!-- Bubble Text Putih -->
+                <div class="px-12 py-4 bg-white text-[#2E3A8C] rounded-full shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg active:scale-95">
+                    <span class="text-base md:text-lg font-bold tracking-wide">Click for more!</span>
                 </div>
             </button>
         </div>
         
     </section>
 
-    <!-- ========================================= -->
     <!-- SECTION 2: HALAMAN KONTEN -->
-    <!-- ========================================= -->
     <section id="konten" class="min-h-screen flex flex-col bg-black text-white">
-        
         <div class="py-20 px-8 md:px-16 text-center max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">Informasi Lebih Lanjut</h2>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 text-indigo-300">Tentang OX-Lab</h2>
             <p class="text-gray-400 text-lg md:text-xl leading-relaxed">
-                Warna latar belakang di atas kini telah mengikuti palet warna dari referensi gambar Anda (Pink ke Biru Tua).
+                Elemen lingkaran biru 3D telah dihapus. Logo sekarang tampil minimalis dengan efek bayangan (drop-shadow) agar tetap memiliki kedalaman di atas gradasi background.
             </p>
         </div>
-
         <div class="pb-20 text-center">
             <button onclick="scrollToTop()" class="px-8 py-4 bg-white/10 text-white rounded-full font-semibold hover:bg-white/20 transition shadow-lg border border-white/20">
                 Kembali ke Atas
