@@ -27,6 +27,11 @@
         .animation-delay-2000 {
             animation-delay: 2s;
         }
+
+        /* Efek cahaya halus di belakang logo transparan */
+        .logo-glow {
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -36,7 +41,6 @@
         
         <!-- Logo Kiri Atas -->
         <div class="absolute top-6 left-6 md:top-10 md:left-10 flex items-center gap-2 cursor-pointer hover:opacity-80 transition">
-            <!-- Placeholder Logo Kiri -->
             <div class="w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
                 L1
             </div>
@@ -46,7 +50,6 @@
         <!-- Logo Kanan Atas -->
         <div class="absolute top-6 right-6 md:top-10 md:right-10 flex items-center gap-2 cursor-pointer hover:opacity-80 transition">
             <span class="hidden md:block font-semibold text-white/90">Brand Kanan</span>
-            <!-- Placeholder Logo Kanan -->
             <div class="w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg transform rotate-3">
                 L2
             </div>
@@ -55,30 +58,27 @@
         <!-- Konten Tengah (Logo Besar & Tulisan) -->
         <div class="flex flex-col items-center z-10 text-center px-4">
             
-            <!-- Placeholder Logo Besar Tengah -->
-            <div class="mb-8 p-6 bg-white rounded-3xl shadow-2xl border border-white/50 transform hover:scale-105 transition duration-500 ease-in-out">
-                <img src="image/7fecb108-1b64-42f5-bd89-6a237e50457e-removebg-preview 1.png" alt="Logo" class="w-32 h-32 md:w-48 md:h-48 object-contain">
-                    <path d="M12 2L2 22h20L12 2zm0 3.83L18.17 20H5.83L12 5.83z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
-                    <circle cx="12" cy="14" r="3" fill="currentColor" />
-                </svg>
+            <!-- AREA LOGO TENGAH (Background putih dihapus, ukuran diperbesar) -->
+            <div class="mb-10 transform hover:scale-105 transition duration-500 ease-in-out">
+                <!-- Ganti link src dengan file logo transparan kamu (PNG) -->
+                <img src="https://via.placeholder.com/400" alt="Logo Utama" class="w-48 h-48 md:w-72 md:h-72 object-contain logo-glow">
             </div>
 
-            <h1 class="text-2xl md:text-4xl font-bold text-white mb-2">Selamat Datang di Web Kami</h1>
-            <p class="text-sm md:text-base text-gray-200 mb-12 max-w-md">Platform inovatif untuk kebutuhan Anda. Temukan lebih banyak hal menarik di bawah ini.</p>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-md">Selamat Datang di Web Kami</h1>
+            <p class="text-sm md:text-lg text-gray-100 mb-14 max-w-lg opacity-90">Platform inovatif untuk kebutuhan Anda. Temukan lebih banyak hal menarik di bawah ini.</p>
 
-            <!-- Tombol Click to Scroll dengan Bubble (Tanpa Panah) -->
+            <!-- Tombol Click to Scroll dengan Bubble -->
             <button onclick="scrollToNext()" class="group flex flex-col items-center gap-3 focus:outline-none">
-                <!-- Bubble Text -->
-                <div class="px-8 py-4 bg-white/20 backdrop-blur-md border border-white/40 rounded-full shadow-lg transition-all duration-300 group-hover:bg-white/30 group-hover:scale-110 active:scale-95">
-                    <span class="text-sm md:text-base font-bold text-white tracking-wide uppercase">Click for more!</span>
+                <div class="px-10 py-5 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full shadow-2xl transition-all duration-300 group-hover:bg-white/25 group-hover:scale-110 active:scale-95">
+                    <span class="text-sm md:text-lg font-bold text-white tracking-widest uppercase">Click for more!</span>
                 </div>
             </button>
 
         </div>
         
         <!-- Ornamen Latar Belakang -->
-        <div class="absolute top-1/4 left-10 w-72 h-72 bg-pink-400 rounded-full mix-blend-overlay filter blur-3xl opacity-50 animate-blob"></div>
-        <div class="absolute top-1/3 right-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-overlay filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        <div class="absolute top-1/4 left-10 w-80 h-80 bg-pink-400 rounded-full mix-blend-overlay filter blur-3xl opacity-40 animate-blob"></div>
+        <div class="absolute top-1/3 right-10 w-80 h-80 bg-blue-400 rounded-full mix-blend-overlay filter blur-3xl opacity-40 animate-blob animation-delay-2000"></div>
 
     </section>
 
@@ -90,14 +90,12 @@
         </p>
         
         <!-- Tombol kembali ke atas -->
-        <button onclick="scrollToTop()" class="mt-10 px-6 py-3 bg-gray-800 text-white rounded-full font-medium hover:bg-gray-700 transition shadow-lg">
+        <button onclick="scrollToTop()" class="mt-10 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-700 text-white rounded-full font-bold hover:opacity-90 transition shadow-xl uppercase tracking-wider">
             Kembali ke Atas
         </button>
     </section>
 
-    <!-- Script JavaScript untuk fungsi Scroll -->
     <script>
-        // Fungsi untuk scroll ke halaman berikutnya
         function scrollToNext() {
             const nextSection = document.getElementById('halaman-selanjutnya');
             if (nextSection) {
@@ -105,7 +103,6 @@
             }
         }
 
-        // Fungsi untuk scroll kembali ke atas
         function scrollToTop() {
             const heroSection = document.getElementById('beranda');
             if (heroSection) {
