@@ -139,59 +139,78 @@
         <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
     </section>
     
- <!-- ========================================= -->
-    <!-- HALAMAN 3: ABOUT US -->
+     <!-- ========================================= -->
+    <!-- HALAMAN 3: ABOUT US (SESUAI REFERENSI Tanpa Footer Logo) -->
     <!-- ========================================= -->
-    <section id="about-us" class="min-h-screen bg-black flex flex-col items-center justify-center py-24 px-6 relative overflow-hidden">
-        <!-- BACKGROUND FULL SELAYAR -->
-        <div class="absolute inset-0 w-full h-full z-0">
-            <img src="image/bg-kakek.png" alt="Background Full Landscape" class="w-full h-full object-cover opacity-30">
-            <!-- Overlay Gradient untuk transisi ke hitam -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black"></div>
-        </div>
-
-        <div class="max-w-5xl w-full text-center z-10">
-            <!-- Logo Di Atas Tengah -->
-            <div class="flex justify-center mb-12">
-                <div class="relative flex items-center justify-center">
-                    <img src="image/kakek.jpg" alt="About Logo" class="w-48 h-48 md:w-64 md:h-64 object-contain relative z-10 filter drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
+    <section id="about-us" class="min-h-screen bg-black flex flex-col items-center">
+        <!-- GAMBAR HEADER LANDSCAPE (Top Section) -->
+        <div class="w-full relative h-[40vh] md:h-[60vh] overflow-hidden">
+            <img src="c99813b3-8f86-4f57-8ee4-73a50f2cae21 1.jpg" alt="Background Header" class="w-full h-full object-cover object-top">
+            <!-- Overlay Gradient untuk menyatukan dengan konten bawah -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+            
+            <!-- Logo Floating di Atas (Logo Header Tetap Ada) -->
+            <div class="absolute top-6 left-6 flex gap-4 items-center scale-90 md:scale-100">
+                <div class="bg-white p-2 rounded flex items-center gap-2 h-10">
+                   <img src="image/logo-ui.png" alt="Logo UI" class="h-6">
+                   <div class="w-px h-full bg-gray-300 mx-1"></div>
+                   <img src="image/Logo OX-Lab.png" alt="Logo OX-Lab" class="h-6">
                 </div>
             </div>
+            <!-- Logo Polar di Atas Kanan Header -->
+            <div class="absolute top-6 right-6">
+                 <img src="image/logo-polar.png" alt="Polar Logo" class="h-10 opacity-80">
+            </div>
+        </div>
 
-            <!-- Konten Teks -->
-            <div class="w-full">
-                <h2 class="text-blue-500 font-bold tracking-widest text-sm mb-4 uppercase">Tentang Kami</h2>
-                <h1 class="text-white text-4xl md:text-6xl font-bold mb-8 leading-tight">Membangun Masa Depan Dengan Inovasi Digital.</h1>
-                <p class="text-gray-400 text-lg md:text-xl leading-relaxed mb-12 max-w-3xl mx-auto">
-                    OX-Lab adalah laboratorium inovasi yang berdedikasi untuk menciptakan solusi sistem integrasi yang cerdas, efisien, dan berkelanjutan. Kami percaya bahwa teknologi harus memberdayakan manusia untuk mencapai lebih banyak.
+        <!-- KONTEN TEKS (Section Bawah) -->
+        <div class="max-w-4xl w-full px-8 pb-24 -mt-10 relative z-10 text-left">
+            <div class="mb-12">
+                <span class="text-gray-400 text-lg">about</span>
+                <h1 class="text-white text-5xl md:text-6xl font-bold tracking-tight mt-1">OX LAB</h1>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Deskripsi -->
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed max-w-3xl">
+                    Pengembangan Game merupakan konsentrasi di jurusan Produksi Media UI yang fokus mempelajari industri game secara keseluruhan. Mulai dari Game Development, Game Marketing, hingga Game Publishing. Dalam menunjang kegiatan pembelajaran agar lebih efektif, kami diajarkan langsung oleh para praktisi di industri game yang tentu ahli dalam bidangnya.
                 </p>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-white text-left max-w-4xl mx-auto">
-                    <div class="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-md">
-                        <h4 class="text-xl font-bold mb-4 flex items-center gap-3">
-                            <span class="w-8 h-1 bg-blue-500 inline-block"></span> Visi
-                        </h4>
-                        <p class="text-gray-400 text-sm leading-relaxed">Menjadi pusat inovasi teknologi terdepan dalam pengembangan sistem cerdas di kancah global yang mampu menjawab tantangan industri masa depan.</p>
-                    </div>
-                    <div class="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
-                        <h4 class="text-xl font-bold mb-4 flex items-center gap-3">
-                            <span class="w-8 h-1 bg-blue-500 inline-block"></span> Misi
-                        </h4>
-                        <p class="text-gray-400 text-sm leading-relaxed">Menghadirkan produk teknologi yang tepat guna, efisien, dan memberikan nilai tambah maksimal bagi mitra melalui riset dan pengembangan berkelanjutan.</p>
+                <!-- History / Timeline Section -->
+                <div>
+                    <h2 class="text-white text-3xl font-bold mb-8">History</h2>
+                    <div class="relative flex items-center justify-between gap-4 max-w-2xl">
+                        <!-- Timeline Line Background -->
+                        <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-800 -translate-y-1/2"></div>
+                        
+                        <!-- Point 1 -->
+                        <div class="relative z-10 flex flex-col items-start w-1/2">
+                            <div class="timeline-dot mb-4 shadow-[0_0_15px_rgba(74,114,194,0.5)]"></div>
+                            <p class="text-white text-sm font-semibold leading-snug">
+                                Since 2024 Oxlab at Media Production Universitas Indonesia
+                            </p>
+                        </div>
+
+                        <!-- Point 2 -->
+                        <div class="relative z-10 flex flex-col items-end text-right w-1/2">
+                            <div class="timeline-dot mb-4 bg-purple-600 shadow-[0_0_15px_rgba(147,51,234,0.5)]"></div>
+                            <p class="text-white text-sm font-semibold leading-snug">
+                                2025 won studio of the year
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Tombol Navigasi -->
-        <div class="mt-20 flex gap-4 z-10">
-            <button onclick="scrollToMenu()" class="px-10 py-3 bg-white/5 text-white rounded-full font-medium hover:bg-white/10 transition border border-white/20 text-sm">
-                Kembali ke Menu
-            </button>
-            <button onclick="scrollToTop()" class="px-10 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition shadow-lg shadow-blue-900/20 text-sm">
-                Kembali ke Awal
-            </button>
+            <!-- Tombol Navigasi Kembali -->
+            <div class="mt-24 flex gap-4 pt-10 border-t border-white/5">
+                <button onclick="scrollToMenu()" class="px-8 py-2 bg-white/5 text-white rounded-full font-medium hover:bg-white/10 transition border border-white/20 text-xs uppercase tracking-widest">
+                    Back to Menu
+                </button>
+                <button onclick="scrollToTop()" class="px-8 py-2 bg-blue-600/20 text-blue-400 rounded-full font-medium hover:bg-blue-600/30 transition border border-blue-500/30 text-xs uppercase tracking-widest">
+                    Back to Hero
+                </button>
+            </div>
         </div>
     </section>
 
