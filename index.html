@@ -559,110 +559,55 @@
                     </div>
                 </div>
             </div>
+        
+<!-- GAME REDIRECT SECTION -->
+    <section id="arena" class="py-40 bg-zinc-950 flex flex-col items-center px-6 border-t border-white/5">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-3xl font-bold text-white mb-4 tracking-tighter">THE SPELLSCRIPT ARENA</h2>
+            <p class="text-zinc-500 text-xs max-w-md mx-auto leading-relaxed">Uji ketangkasan mengetikmu dalam arena simulasi arcane yang didukung oleh teknologi OX-Lab.</p>
+        </div>
 
-          <!-- CONTENT SECTION -->
-    <section id="game-section" class="min-h-screen bg-black py-24 px-6">
-        <div class="max-w-6xl mx-auto">
+        <!-- Poster with Link -->
+        <a href="https://salmanalfarizky.github.io/ketemusetan2.id/" target="_blank" class="game-viewport reveal block group relative">
+            <div class="grid-overlay"></div>
             
-            <!-- GAME PREVIEW -->
-            <div class="py-12 reveal">
-                <div class="text-center mb-12">
-                    <span class="text-amber-500 font-bold tracking-widest uppercase text-xs">Interactive Zone</span>
-                    <h2 class="text-white text-5xl font-bold mt-2">Ready to Play?</h2>
+            <!-- Tech UI Elements -->
+            <div class="absolute top-8 left-8 z-40 border-l border-t border-blue-500/40 w-12 h-12"></div>
+            <div class="absolute bottom-8 right-8 z-40 border-r border-b border-blue-500/40 w-12 h-12"></div>
+            
+            <!-- Poster UI -->
+            <div class="absolute inset-0 z-30 flex flex-col items-center justify-center bg-zinc-900/80 transition-all duration-700 group-hover:bg-zinc-900/40 backdrop-filter blur-[2px] group-hover:blur-0">
+                
+                <div class="mb-8 opacity-40 group-hover:opacity-100 transition-opacity duration-500">
+                    <svg class="w-16 h-16 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="0.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
                 </div>
 
-                <div class="flex justify-center mb-12">
-                    <div id="arena-main" class="game-screen group">
-                        <div class="scanline"></div>
-                        
-                        <!-- Poster View -->
-                        <div id="game-poster" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-zinc-900 transition-opacity duration-700">
-                            <div class="absolute inset-0 bg-blue-600/10 mix-blend-overlay"></div>
-                            <div class="relative z-30 text-center p-6">
-                                <h3 class="text-5xl font-black italic tracking-tighter mb-4 text-white drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">SPELLSCRIPT</h3>
-                                <p class="text-gray-400 text-sm mb-8 max-w-sm mx-auto">Ketik mantra secepat mungkin untuk mengalahkan musuh di arena.</p>
-                                <button onclick="startGame()" class="px-12 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-black tracking-widest uppercase transition-all hover:scale-110 shadow-[0_0_30px_rgba(37,99,235,0.4)]">Launch Arena</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Game Container -->
-                        <div id="game-container" class="absolute inset-0 z-10 flex items-center justify-center bg-black">
-                            <!-- Login Screen -->
-                            <div id="ss-login-screen" class="ss-game-card">
-                                <h1 class="text-3xl font-bold text-white mb-2">SPELLSCRIPT</h1>
-                                <p class="text-zinc-500 text-[10px] mb-8 tracking-[0.3em]">IDENTITAS KSATRIA ARENA</p>
-                                <div class="w-full max-w-xs space-y-4">
-                                    <input type="text" id="ss-name-input" class="ss-input-battle py-3" placeholder="Ketik namamu..." autocomplete="off">
-                                    <button onclick="ssStartGame()" class="w-full py-3 bg-white text-black font-bold uppercase tracking-widest hover:bg-zinc-200">MASUK ARENA</button>
-                                </div>
-                            </div>
-
-                            <!-- Combat Screen -->
-                            <div id="ss-game-screen" class="ss-game-card" style="display: none;">
-                                <div class="w-full flex justify-between items-start mb-6">
-                                    <div class="w-2/5">
-                                        <span id="ss-p-name" class="text-[9px] font-bold text-zinc-400 uppercase tracking-widest">PLAYER</span>
-                                        <div class="ss-hp-bar"><div id="ss-p-hp-fill" class="ss-hp-fill ss-player-bg" style="width: 100%;"></div></div>
-                                        <span id="ss-p-hp-text" class="text-[9px] text-zinc-500">100/100</span>
-                                    </div>
-                                    <div class="text-zinc-600 font-bold self-center text-xs">VS</div>
-                                    <div class="w-2/5 text-right">
-                                        <span class="text-[9px] font-bold text-red-500 uppercase tracking-widest">ARCH-WIZARD</span>
-                                        <div class="ss-hp-bar"><div id="ss-e-hp-fill" class="ss-hp-fill ss-enemy-bg" style="width: 100%;"></div></div>
-                                        <span id="ss-e-hp-text" class="text-[9px] text-zinc-500 text-right block">100/100</span>
-                                    </div>
-                                </div>
-
-                                <div id="ss-battle-log" class="text-center text-[10px] h-4 mb-8 uppercase tracking-tighter text-zinc-400">Siapkan jemarimu...</div>
-
-                                <div class="grid grid-cols-2 gap-4 w-full">
-                                    <div class="space-y-2">
-                                        <label class="text-[8px] text-zinc-500 uppercase font-bold tracking-widest">⚔️ ATTACK</label>
-                                        <div id="ss-atk-word" class="text-lg font-bold text-white bg-white/5 py-2 rounded-lg border border-white/5">---</div>
-                                        <input type="text" id="ss-atk-input" class="ss-input-battle" placeholder="ketik..." autocomplete="off">
-                                    </div>
-                                    <div class="space-y-2">
-                                        <label class="text-[8px] text-zinc-500 uppercase font-bold tracking-widest">🧪 HEAL</label>
-                                        <div id="ss-heal-word" class="text-lg font-bold text-white bg-white/5 py-2 rounded-lg border border-white/5">---</div>
-                                        <input type="text" id="ss-heal-input" class="ss-input-battle" placeholder="ketik..." autocomplete="off">
-                                    </div>
-                                </div>
-                                <div class="mt-auto pt-6 w-full border-t border-white/5 flex justify-between text-[8px] text-zinc-600 uppercase font-bold">
-                                    <div>SKOR: <span id="ss-score-val" class="text-zinc-400">0</span></div>
-                                    <div>LEVEL: <span id="ss-lvl-val" class="text-zinc-400">1</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Stats Bar -->
-                <div class="flex justify-center gap-6 mb-24">
-                    <div class="text-center">
-                        <p class="text-white font-bold text-xl">100k+</p>
-                        <p class="text-gray-500 text-[10px] uppercase tracking-widest">Active Players</p>
-                    </div>
-                    <div class="w-px h-10 bg-white/10 self-center"></div>
-                    <div class="text-center">
-                        <p class="text-white font-bold text-xl">4.8/5</p>
-                        <p class="text-gray-500 text-[10px] uppercase tracking-widest">User Rating</p>
-                    </div>
+                <h3 class="font-game text-4xl mb-4 text-white font-bold tracking-widest uppercase">SPELLSCRIPT</h3>
+                <p class="text-blue-400 text-[10px] mb-12 tracking-[0.5em] font-bold uppercase">Ready for Deployment</p>
+                
+                <div class="relative px-12 py-4 border border-white/20 group-hover:border-blue-500 transition-all">
+                    <span class="relative z-10 text-white font-bold text-[10px] uppercase tracking-[0.3em]">Launch Interface</span>
+                    <div class="absolute inset-0 bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 opacity-20"></div>
                 </div>
             </div>
 
+            <!-- Dynamic Background -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/20 to-transparent"></div>
+        </a>
 
-                <div class="flex justify-center gap-6">
-                    <div class="text-center">
-                        <p class="text-white font-bold text-xl">100k+</p>
-                        <p class="text-gray-500 text-[10px] uppercase tracking-widest">Active Players</p>
-                    </div>
-                    <div class="w-px h-10 bg-white/10 self-center"></div>
-                    <div class="text-center">
-                        <p class="text-white font-bold text-xl">4.8/5</p>
-                        <p class="text-gray-500 text-[10px] uppercase tracking-widest">User Rating</p>
-                    </div>
-                </div>
+        <div class="mt-20 flex gap-20 reveal">
+            <div class="text-center">
+                <p class="text-3xl font-bold font-game">128</p>
+                <p class="text-[9px] text-zinc-500 uppercase font-black tracking-widest mt-2">Active Nodes</p>
             </div>
+            <div class="text-center">
+                <p class="text-3xl font-bold font-game text-blue-500">4.9</p>
+                <p class="text-[9px] text-zinc-500 uppercase font-black tracking-widest mt-2">System Stability</p>
+            </div>
+        </div>
+    </section>
 
 
             <!-- HALAMAN 4: SIMPLE CONTACT -->
@@ -711,130 +656,13 @@
 
     <script>               
   
-        /* --- SPELLSCRIPT GAME LOGIC --- */
-        let gameState = {
-            playerHP: 100,
-            enemyHP: 100,
-            score: 0,
-            level: 1,
-            playerName: "KSATRIA",
-            gameActive: false,
-            enemyTimer: null
-        };
-
-        const wordBank = ["CRYSTAL", "DRAGON", "WIZARD", "CASTLE", "SWORD", "MAGIC", "PORTAL", "SHIELD", "SPIRIT", "FLAME", "STORM", "LEGEND", "KNIGHT", "GHOST", "SHADOW", "LIGHT"];
-
-        function getRandomWord() { return wordBank[Math.floor(Math.random() * wordBank.length)]; }
-
-        function startGame() {
-            const poster = document.getElementById('game-poster');
-            poster.style.opacity = '0';
-            setTimeout(() => {
-                poster.style.display = 'none';
-                document.getElementById('ss-name-input').focus();
-            }, 700);
-        }
-
-        function ssStartGame() {
-            const name = document.getElementById('ss-name-input').value.trim();
-            if (name) gameState.playerName = name.toUpperCase();
-            document.getElementById('ss-p-name').innerText = gameState.playerName;
-            document.getElementById('ss-login-screen').style.display = 'none';
-            document.getElementById('ss-game-screen').style.display = 'flex';
-            resetArena();
-            gameState.gameActive = true;
-            startEnemyAttack();
-            document.getElementById('ss-atk-input').focus();
-        }
-
-        function resetArena() {
-            gameState.playerHP = 100;
-            gameState.enemyHP = 100;
-            gameState.score = 0;
-            gameState.level = 1;
-            updateUI();
-            newWords();
-        }
-
-        function updateUI() {
-            document.getElementById('ss-p-hp-fill').style.width = gameState.playerHP + '%';
-            document.getElementById('ss-e-hp-fill').style.width = (gameState.enemyHP / (100 + (gameState.level * 10)) * 100) + '%';
-            document.getElementById('ss-p-hp-text').innerText = `${Math.max(0, gameState.playerHP)}/100`;
-            document.getElementById('ss-e-hp-text').innerText = `${Math.max(0, gameState.enemyHP)}/${100 + (gameState.level * 10)}`;
-            document.getElementById('ss-score-val').innerText = gameState.score;
-            document.getElementById('ss-lvl-val').innerText = gameState.level;
-        }
-
-        function newWords() {
-            document.getElementById('ss-atk-word').innerText = getRandomWord();
-            document.getElementById('ss-heal-word').innerText = getRandomWord();
-            document.getElementById('ss-atk-input').value = "";
-            document.getElementById('ss-heal-input').value = "";
-        }
-
-        function logAction(msg, color = "#94a3b8") {
-            const log = document.getElementById('ss-battle-log');
-            log.innerText = msg;
-            log.style.color = color;
-        }
-
-        document.getElementById('ss-atk-input').addEventListener('input', (e) => {
-            const target = document.getElementById('ss-atk-word').innerText;
-            if (e.target.value.toUpperCase() === target) {
-                gameState.enemyHP -= 15;
-                gameState.score += 50;
-                logAction("💥 ATTACK HIT! (-15 Enemy HP)", "#10b981");
-                checkBattleState();
-                newWords();
-            }
-        });
-
-        document.getElementById('ss-heal-input').addEventListener('input', (e) => {
-            const target = document.getElementById('ss-heal-word').innerText;
-            if (e.target.value.toUpperCase() === target) {
-                gameState.playerHP = Math.min(100, gameState.playerHP + 20);
-                logAction("🧪 HEAL CASTED! (+20 Player HP)", "#3b82f6");
-                updateUI();
-                newWords();
-            }
-        });
-
-        function startEnemyAttack() {
-            if (gameState.enemyTimer) clearInterval(gameState.enemyTimer);
-            const speed = Math.max(1200, 4000 - (gameState.level * 400));
-            gameState.enemyTimer = setInterval(() => {
-                if (!gameState.gameActive) return;
-                const damage = 8 + (gameState.level * 3);
-                gameState.playerHP -= damage;
-                document.getElementById('arena-main').classList.add('game-shake');
-                setTimeout(() => document.getElementById('arena-main').classList.remove('game-shake'), 200);
-                logAction(`⚡ ENEMY STRIKE! (-${damage} HP)`, "#ef4444");
-                updateUI();
-                if (gameState.playerHP <= 0) gameOver();
-            }, speed);
-        }
-
-        function checkBattleState() {
-            if (gameState.enemyHP <= 0) {
-                gameState.level++;
-                gameState.enemyHP = 100 + (gameState.level * 10);
-                gameState.score += 500;
-                logAction("🏆 LEVEL UP! ENEMY EVOLVED", "#fbbf24");
-                updateUI();
-                startEnemyAttack();
-            } else { updateUI(); }
-        }
-
-        function gameOver() {
-            gameState.gameActive = false;
-            clearInterval(gameState.enemyTimer);
-            logAction(`💀 ARENA FAILED. Score: ${gameState.score}`, "#ef4444");
-            setTimeout(() => {
-                if(confirm(`Game Over!\nSkor: ${gameState.score}\nTry Again?`)) {
-                    location.reload();
-                }
-            }, 500);
-        }
+       // --- ANIMATIONS ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { 
+                if (entry.isIntersecting) entry.target.classList.add('active'); 
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
