@@ -560,15 +560,19 @@
                 </div>
             </div>
 
-          <!-- GAME PREVIEW -->
-            <div id="game-section" class="py-32 border-t border-white/5 reveal">
+          <!-- CONTENT SECTION -->
+    <section id="game-section" class="min-h-screen bg-black py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- GAME PREVIEW -->
+            <div class="py-12 reveal">
                 <div class="text-center mb-12">
                     <span class="text-amber-500 font-bold tracking-widest uppercase text-xs">Interactive Zone</span>
                     <h2 class="text-white text-5xl font-bold mt-2">Ready to Play?</h2>
                 </div>
 
                 <div class="flex justify-center mb-12">
-                    <div class="game-screen group">
+                    <div id="arena-main" class="game-screen group">
                         <div class="scanline"></div>
                         
                         <!-- Poster View -->
@@ -583,54 +587,68 @@
                         
                         <!-- Game Container -->
                         <div id="game-container" class="absolute inset-0 z-10 flex items-center justify-center bg-black">
-                            <div id="spellscript-app">
-                                <!-- Login Screen -->
-                                <div id="ss-login-screen" class="ss-game-card">
-                                    <h1 class="ss-title">SPELLSCRIPT</h1>
-                                    <p class="ss-subtitle">IDENTITAS KSATRIA ARENA</p>
-                                    <div class="ss-input-group">
-                                        <input type="text" id="ss-name-input" class="ss-input-text" placeholder="Ketik namamu..." autocomplete="off">
-                                        <button onclick="ssStartGame()" class="ss-btn">MASUK ARENA</button>
+                            <!-- Login Screen -->
+                            <div id="ss-login-screen" class="ss-game-card">
+                                <h1 class="text-3xl font-bold text-white mb-2">SPELLSCRIPT</h1>
+                                <p class="text-zinc-500 text-[10px] mb-8 tracking-[0.3em]">IDENTITAS KSATRIA ARENA</p>
+                                <div class="w-full max-w-xs space-y-4">
+                                    <input type="text" id="ss-name-input" class="ss-input-battle py-3" placeholder="Ketik namamu..." autocomplete="off">
+                                    <button onclick="ssStartGame()" class="w-full py-3 bg-white text-black font-bold uppercase tracking-widest hover:bg-zinc-200">MASUK ARENA</button>
+                                </div>
+                            </div>
+
+                            <!-- Combat Screen -->
+                            <div id="ss-game-screen" class="ss-game-card" style="display: none;">
+                                <div class="w-full flex justify-between items-start mb-6">
+                                    <div class="w-2/5">
+                                        <span id="ss-p-name" class="text-[9px] font-bold text-zinc-400 uppercase tracking-widest">PLAYER</span>
+                                        <div class="ss-hp-bar"><div id="ss-p-hp-fill" class="ss-hp-fill ss-player-bg" style="width: 100%;"></div></div>
+                                        <span id="ss-p-hp-text" class="text-[9px] text-zinc-500">100/100</span>
+                                    </div>
+                                    <div class="text-zinc-600 font-bold self-center text-xs">VS</div>
+                                    <div class="w-2/5 text-right">
+                                        <span class="text-[9px] font-bold text-red-500 uppercase tracking-widest">ARCH-WIZARD</span>
+                                        <div class="ss-hp-bar"><div id="ss-e-hp-fill" class="ss-hp-fill ss-enemy-bg" style="width: 100%;"></div></div>
+                                        <span id="ss-e-hp-text" class="text-[9px] text-zinc-500 text-right block">100/100</span>
                                     </div>
                                 </div>
 
-                                <!-- Combat Screen -->
-                                <div id="ss-game-screen" class="ss-game-card" style="display: none;">
-                                    <div class="ss-battle-header">
-                                        <div class="ss-unit">
-                                            <span id="ss-p-name" class="ss-unit-name">PLAYER</span>
-                                            <div class="ss-hp-bar"><div id="ss-p-hp-fill" class="ss-hp-fill ss-player-bg" style="width: 100%;"></div></div>
-                                            <span id="ss-p-hp-text" class="ss-hp-num">100/100</span>
-                                        </div>
-                                        <div class="ss-vs">VS</div>
-                                        <div class="ss-unit">
-                                            <span class="ss-unit-name ss-enemy-color">ARCH-WIZARD</span>
-                                            <div class="ss-hp-bar"><div id="ss-e-hp-fill" class="ss-hp-fill ss-enemy-bg" style="width: 100%;"></div></div>
-                                            <span id="ss-e-hp-text" class="ss-hp-num">100/100</span>
-                                        </div>
+                                <div id="ss-battle-log" class="text-center text-[10px] h-4 mb-8 uppercase tracking-tighter text-zinc-400">Siapkan jemarimu...</div>
+
+                                <div class="grid grid-cols-2 gap-4 w-full">
+                                    <div class="space-y-2">
+                                        <label class="text-[8px] text-zinc-500 uppercase font-bold tracking-widest">⚔️ ATTACK</label>
+                                        <div id="ss-atk-word" class="text-lg font-bold text-white bg-white/5 py-2 rounded-lg border border-white/5">---</div>
+                                        <input type="text" id="ss-atk-input" class="ss-input-battle" placeholder="ketik..." autocomplete="off">
                                     </div>
-                                    <div id="ss-battle-log" class="ss-action-log">Siapkan jemarimu...</div>
-                                    <div class="ss-action-grid">
-                                        <div class="ss-spell-box">
-                                            <label class="ss-spell-label">⚔️ SERANG (ATK)</label>
-                                            <div id="ss-atk-word" class="ss-target-word">START</div>
-                                            <input type="text" id="ss-atk-input" class="ss-input-battle" placeholder="ketik..." autocomplete="off">
-                                        </div>
-                                        <div class="ss-spell-box">
-                                            <label class="ss-spell-label">🧪 PULIH (HEAL)</label>
-                                            <div id="ss-heal-word" class="ss-target-word">MEDIC</div>
-                                            <input type="text" id="ss-heal-input" class="ss-input-battle" placeholder="ketik..." autocomplete="off">
-                                        </div>
+                                    <div class="space-y-2">
+                                        <label class="text-[8px] text-zinc-500 uppercase font-bold tracking-widest">🧪 HEAL</label>
+                                        <div id="ss-heal-word" class="text-lg font-bold text-white bg-white/5 py-2 rounded-lg border border-white/5">---</div>
+                                        <input type="text" id="ss-heal-input" class="ss-input-battle" placeholder="ketik..." autocomplete="off">
                                     </div>
-                                    <div class="ss-footer-stats">SKOR: <span id="ss-score-val">0</span> | LEVEL: <span id="ss-lvl-val">1</span></div>
+                                </div>
+                                <div class="mt-auto pt-6 w-full border-t border-white/5 flex justify-between text-[8px] text-zinc-600 uppercase font-bold">
+                                    <div>SKOR: <span id="ss-score-val" class="text-zinc-400">0</span></div>
+                                    <div>LEVEL: <span id="ss-lvl-val" class="text-zinc-400">1</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Stats Bar -->
+                <div class="flex justify-center gap-6 mb-24">
+                    <div class="text-center">
+                        <p class="text-white font-bold text-xl">100k+</p>
+                        <p class="text-gray-500 text-[10px] uppercase tracking-widest">Active Players</p>
+                    </div>
+                    <div class="w-px h-10 bg-white/10 self-center"></div>
+                    <div class="text-center">
+                        <p class="text-white font-bold text-xl">4.8/5</p>
+                        <p class="text-gray-500 text-[10px] uppercase tracking-widest">User Rating</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
 
 
                 <div class="flex justify-center gap-6">
@@ -692,7 +710,8 @@
 </body>
 
     <script>               
-  // --- SPELLSCRIPT GAME LOGIC ---
+  
+        /* --- SPELLSCRIPT GAME LOGIC --- */
         let gameState = {
             playerHP: 100,
             enemyHP: 100,
@@ -703,14 +722,9 @@
             enemyTimer: null
         };
 
-        const wordBank = [
-            "CRYSTAL", "DRAGON", "WIZARD", "CASTLE", "SWORD", "MAGIC", "PORTAL", "SHIELD", 
-            "SPIRIT", "FLAME", "STORM", "LEGEND", "KNIGHT", "GHOST", "SHADOW", "LIGHT"
-        ];
+        const wordBank = ["CRYSTAL", "DRAGON", "WIZARD", "CASTLE", "SWORD", "MAGIC", "PORTAL", "SHIELD", "SPIRIT", "FLAME", "STORM", "LEGEND", "KNIGHT", "GHOST", "SHADOW", "LIGHT"];
 
-        function getRandomWord() {
-            return wordBank[Math.floor(Math.random() * wordBank.length)];
-        }
+        function getRandomWord() { return wordBank[Math.floor(Math.random() * wordBank.length)]; }
 
         function startGame() {
             const poster = document.getElementById('game-poster');
@@ -724,11 +738,9 @@
         function ssStartGame() {
             const name = document.getElementById('ss-name-input').value.trim();
             if (name) gameState.playerName = name.toUpperCase();
-            
             document.getElementById('ss-p-name').innerText = gameState.playerName;
             document.getElementById('ss-login-screen').style.display = 'none';
-            document.getElementById('ss-game-screen').style.display = 'block';
-            
+            document.getElementById('ss-game-screen').style.display = 'flex';
             resetArena();
             gameState.gameActive = true;
             startEnemyAttack();
@@ -746,9 +758,9 @@
 
         function updateUI() {
             document.getElementById('ss-p-hp-fill').style.width = gameState.playerHP + '%';
-            document.getElementById('ss-e-hp-fill').style.width = gameState.enemyHP + '%';
-            document.getElementById('ss-p-hp-text').innerText = `${gameState.playerHP}/100`;
-            document.getElementById('ss-e-hp-text').innerText = `${gameState.enemyHP}/100`;
+            document.getElementById('ss-e-hp-fill').style.width = (gameState.enemyHP / (100 + (gameState.level * 10)) * 100) + '%';
+            document.getElementById('ss-p-hp-text').innerText = `${Math.max(0, gameState.playerHP)}/100`;
+            document.getElementById('ss-e-hp-text').innerText = `${Math.max(0, gameState.enemyHP)}/${100 + (gameState.level * 10)}`;
             document.getElementById('ss-score-val').innerText = gameState.score;
             document.getElementById('ss-lvl-val').innerText = gameState.level;
         }
@@ -766,13 +778,12 @@
             log.style.color = color;
         }
 
-        // Handle Inputs
         document.getElementById('ss-atk-input').addEventListener('input', (e) => {
             const target = document.getElementById('ss-atk-word').innerText;
             if (e.target.value.toUpperCase() === target) {
-                gameState.enemyHP -= 10;
+                gameState.enemyHP -= 15;
                 gameState.score += 50;
-                logAction(`💥 SERANGAN BERHASIL! (-10 HP Musuh)`, "#10b981");
+                logAction("💥 ATTACK HIT! (-15 Enemy HP)", "#10b981");
                 checkBattleState();
                 newWords();
             }
@@ -781,8 +792,8 @@
         document.getElementById('ss-heal-input').addEventListener('input', (e) => {
             const target = document.getElementById('ss-heal-word').innerText;
             if (e.target.value.toUpperCase() === target) {
-                gameState.playerHP = Math.min(100, gameState.playerHP + 15);
-                logAction(`🧪 MANTRA PEMULIH! (+15 HP Kamu)`, "#3b82f6");
+                gameState.playerHP = Math.min(100, gameState.playerHP + 20);
+                logAction("🧪 HEAL CASTED! (+20 Player HP)", "#3b82f6");
                 updateUI();
                 newWords();
             }
@@ -790,17 +801,15 @@
 
         function startEnemyAttack() {
             if (gameState.enemyTimer) clearInterval(gameState.enemyTimer);
-            
-            const speed = Math.max(1500, 4000 - (gameState.level * 300));
-            
+            const speed = Math.max(1200, 4000 - (gameState.level * 400));
             gameState.enemyTimer = setInterval(() => {
                 if (!gameState.gameActive) return;
-                
-                const damage = 5 + (gameState.level * 2);
+                const damage = 8 + (gameState.level * 3);
                 gameState.playerHP -= damage;
-                logAction(`⚡ ARCH-WIZARD MENYERANG! (-${damage} HP)`, "#ef4444");
+                document.getElementById('arena-main').classList.add('game-shake');
+                setTimeout(() => document.getElementById('arena-main').classList.remove('game-shake'), 200);
+                logAction(`⚡ ENEMY STRIKE! (-${damage} HP)`, "#ef4444");
                 updateUI();
-                
                 if (gameState.playerHP <= 0) gameOver();
             }, speed);
         }
@@ -810,32 +819,22 @@
                 gameState.level++;
                 gameState.enemyHP = 100 + (gameState.level * 10);
                 gameState.score += 500;
-                logAction(`🏆 MUSUH TERKALAHKAN! LEVEL UP!`, "#fbbf24");
+                logAction("🏆 LEVEL UP! ENEMY EVOLVED", "#fbbf24");
                 updateUI();
-                startEnemyAttack(); // Faster attack
-            } else {
-                updateUI();
-            }
+                startEnemyAttack();
+            } else { updateUI(); }
         }
 
         function gameOver() {
             gameState.gameActive = false;
             clearInterval(gameState.enemyTimer);
-            logAction(`💀 KAMU GUGUR DI ARENA. Skor: ${gameState.score}`, "#ef4444");
-            
+            logAction(`💀 ARENA FAILED. Score: ${gameState.score}`, "#ef4444");
             setTimeout(() => {
-                const retry = confirm(`Permainan Berakhir!\nSkor Akhir: ${gameState.score}\nCoba Lagi?`);
-                if (retry) {
-                    resetArena();
-                    gameState.gameActive = true;
-                    startEnemyAttack();
-                } else {
+                if(confirm(`Game Over!\nSkor: ${gameState.score}\nTry Again?`)) {
                     location.reload();
                 }
             }, 500);
         }
-
     </script>
 </body>
 </html>
-
