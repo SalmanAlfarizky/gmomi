@@ -206,6 +206,280 @@
                 </div>
             </div>
 
+              <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Oxlab - Media Production</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* --- SECTION HISTORY (HORIZONTAL) --- */
+        .history-header {
+            padding-top: 120px;
+            padding-bottom: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .history-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            padding-left: 20px;
+        }
+
+        .line-container {
+            width: 100%;
+            max-width: 1000px;
+            position: relative;
+            margin: 80px auto 180px auto;
+            padding: 0 20px;
+        }
+
+        .line-wrapper {
+            position: relative;
+            height: 4px;
+            background: #2e2a85;
+            border-radius: 2px;
+        }
+
+        .dot {
+            width: 28px;
+            height: 28px;
+            background-color: #2e2a85;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 20px rgba(46, 42, 133, 0.6);
+        }
+
+        .dot-label {
+            position: absolute;
+            top: 45px;
+            width: 280px;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* --- SECTION MILESTONES (VERTICAL) --- */
+        .milestones-section {
+            padding-bottom: 150px;
+        }
+
+        .milestones-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            /* Memberi jarak atas agar garis vertikal tidak menabrak elemen di atasnya */
+            padding-top: 60px; 
+        }
+
+        .milestone-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            /* Gradient agar garis mulai dari transparan (tidak mendadak muncul) */
+            background: linear-gradient(to bottom, transparent, #2e2a85 10%, #4f46e5 90%, transparent);
+            transform: translateX(-50%);
+        }
+
+        .milestone-item {
+            position: relative;
+            margin-bottom: 100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .milestone-dot {
+            width: 16px;
+            height: 16px;
+            background: #2e2a85;
+            border: 3px solid #000;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%; /* Menyelaraskan dengan tengah teks agar tidak nabrak */
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(46, 42, 133, 0.8);
+        }
+
+        .milestone-content {
+            width: 42%;
+        }
+
+        .milestone-item:nth-child(odd) { justify-content: flex-start; }
+        .milestone-item:nth-child(even) { justify-content: flex-end; }
+
+        .milestone-item:nth-child(odd) .milestone-content {
+            text-align: right;
+            padding-right: 50px;
+        }
+
+        .milestone-item:nth-child(even) .milestone-content {
+            text-align: left;
+            padding-left: 50px;
+        }
+
+        .milestone-text {
+            color: #e4e4e7;
+            font-weight: 500;
+            font-size: 1.125rem;
+        }
+
+        .milestone-subtext {
+            color: #71717a;
+            font-size: 0.875rem;
+            margin-top: 4px;
+        }
+
+        .milestone-highlight {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        @media (max-width: 768px) {
+            .history-title { font-size: 2.5rem; text-align: center; padding-left: 0; }
+            .milestone-line { left: 30px; transform: none; top: 0; }
+            .milestone-dot { left: 30px; top: 24px; transform: translateX(-50%); }
+            .milestone-item { justify-content: flex-start !important; margin-bottom: 60px; }
+            .milestone-content { 
+                width: 100% !important; 
+                text-align: left !important; 
+                padding-left: 60px !important; 
+                padding-right: 20px !important;
+            }
+            .line-container { margin: 60px auto 120px auto; }
+            .dot-label { width: 160px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="history-header">
+        <h2 class="history-title">History</h2>
+    </div>
+
+    <!-- Garis Horizontal Sejarah Singkat -->
+    <div class="line-container">
+        <div class="line-wrapper">
+            <div class="dot" style="left: 0;">
+                <div class="dot-label" style="left: 0;">
+                    <span class="block">Since 2024 Oxlab at</span>
+                    <span class="block text-zinc-400">Media Production</span>
+                    <span class="block text-zinc-400">Universitas Indonesia</span>
+                </div>
+            </div>
+            
+            <div class="dot" style="right: 0;">
+                <div class="dot-label text-right" style="right: 0;">
+                    <span class="block">2025 won studio</span>
+                    <span class="block">of the year</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Milestones Vertikal -->
+    <section class="milestones-section">
+        <div class="milestones-container">
+            <!-- Garis Vertikal dengan Gradient agar tidak nabrak mendadak -->
+            <div class="milestone-line"></div>
+
+            <div class="milestone-item">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <p class="milestone-text">2024, OX-Lab formed</p>
+                </div>
+            </div>
+
+            <div class="milestone-item">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <p class="milestone-text">Tokyo Gameshow 2024</p>
+                    <p class="milestone-subtext">(Alvian and Fikri)</p>
+                </div>
+            </div>
+
+            <div class="milestone-item">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <p class="milestone-text">Unity Certified Google Game Developer, Singapore</p>
+                    <p class="milestone-subtext">2024 (Omar Xavier)</p>
+                </div>
+            </div>
+
+            <div class="milestone-item">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <p class="milestone-text">IGDX Bootcamp and Exhibition Bali 2024</p>
+                </div>
+            </div>
+
+            <div class="milestone-item">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <p class="milestone-text">Game Jam Awards 2024</p>
+                </div>
+            </div>
+
+            <div class="milestone-item">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <p class="milestone-text">Pengmas Cibuluh 2024</p>
+                </div>
+            </div>
+
+            <div class="milestone-item">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <p class="milestone-text">Game Jam Awards 2025</p>
+                </div>
+            </div>
+
+            <div class="milestone-item">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <p class="milestone-text">Very Big Indie Pitch Jordan 2025</p>
+                    <p class="milestone-subtext">By OX 23</p>
+                </div>
+            </div>
+
+            <div class="milestone-item">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <p class="milestone-text">Unity Certified Game Developer 2025</p>
+                </div>
+            </div>
+
+            <div class="milestone-item">
+                <div class="milestone-dot" style="background: #4f46e5; width: 22px; height: 22px;"></div>
+                <div class="milestone-content">
+                    <p class="milestone-highlight">Top 3 Studio of The Year</p>
+                    <p class="text-zinc-500 font-semibold uppercase text-xs mt-3 tracking-widest">Media Production UI &bull; 2025</p>
+                </div>
+            </div>
+        </div>
+
             <!-- COLLAB & ACHIEVE -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
                 <div class="glass-card rounded-[2rem] p-8 reveal">
