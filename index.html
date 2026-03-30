@@ -100,25 +100,44 @@
 </head>
 <body>
 
-    <!-- HALAMAN 1: HERO -->
-    <section id="beranda" class="gradient-bg relative h-screen flex flex-col justify-between overflow-hidden">
-        <div class="pt-6 px-6 md:px-10 flex justify-between items-center z-20">
-            <div class="h-14 bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl p-2 px-4 flex gap-3">
-                <img src="image/logo-ui.png" class="h-full object-contain">
-                <div class="w-px h-2/3 bg-white/30 self-center"></div>
-                <img src="image/Logo OX-Lab.png" class="h-full object-contain">
-            </div>
-            <img src="image/logo-polar.png" class="w-28 h-28 md:w-28 md:h-28 object-contain opacity-90">
-        </div>
+    <section id="beranda" class="gradient-bg relative h-[100svh] flex flex-col overflow-hidden">
 
-        <div class="flex-grow flex flex-col items-center justify-center z-10 px-4">
-            <img src="image/7fecb108-1b64-42f5-bd89-6a237e50457e-removebg-preview 1.png" class="w-44 md:w-[480px] filter drop-shadow-2xl animate-[bounce_4s_infinite]">
+    <!-- TOP BAR -->
+    <div class="pt-5 px-6 md:px-10 flex justify-between items-center z-20">
+        <div class="h-12 bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl p-2 px-4 flex gap-3">
+            <img src="image/logo-ui.png" class="h-full object-contain">
+            <div class="w-px h-2/3 bg-white/30 self-center"></div>
+            <img src="image/Logo OX-Lab.png" class="h-full object-contain">
         </div>
+        <img src="image/logo-polar.png" class="w-20 h-20 md:w-24 md:h-24 object-contain opacity-90">
+    </div>
 
-        <div class="pb-16 flex justify-center z-10">
-            <button onclick="scrollToMenu()" class="px-14 py-4 bg-white text-[#2E3A8C] rounded-full font-bold tracking-widest uppercase hover:scale-105 transition shadow-2xl">Explore More</button>
-        </div>
-    </section>
+    <!-- CENTER LOGO -->
+    <div class="flex-1 flex items-center justify-center px-4">
+        <img 
+            src="image/7fecb108-1b64-42f5-bd89-6a237e50457e-removebg-preview 1.png" 
+            class="w-48 md:w-80 lg:w-[380px] 
+                   max-h-[45vh] object-contain 
+                   filter drop-shadow-2xl 
+                   animate-[bounce_4s_infinite]"
+        >
+    </div>
+
+    <!-- BUTTON -->
+    <div class="pb-8 flex justify-center z-10">
+        <button 
+            onclick="scrollToMenu()" 
+            class="px-10 py-3 md:px-14 md:py-4 
+                   bg-white text-[#2E3A8C] 
+                   rounded-full font-bold 
+                   tracking-widest uppercase 
+                   hover:scale-105 transition 
+                   shadow-2xl">
+            Explore More
+        </button>
+    </div>
+
+</section>
 
     <!-- HALAMAN 2: MENU UTAMA -->
     <section id="menu-utama" class="min-h-screen bg-[#020617] flex flex-col items-center justify-center py-24 px-6 relative overflow-hidden">
