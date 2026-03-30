@@ -586,6 +586,187 @@
                         <div id="game-container" class="absolute inset-0 z-10 flex items-center justify-center bg-black">
                             <!-- TEMPATKAN CODINGAN GAME ANDA DI SINI -->
                              <p class="text-gray-600 italic text-sm">Game sedang dimuat...</p>
+                            <div id="game-container">
+    <div id="login-screen">
+        <h1>SPELLSCRIPT</h1>
+        <p style="opacity: 0.6; font-size: 14px;">IDENTITAS KSATRIA</p>
+        <div style="margin-bottom: 20px;">
+            <input type="text" id="name-input" placeholder="Masukkan namamu..." autocomplete="off">
+        </div>
+        <button onclick="startGame()">MASUK ARENA</button>
+        <div id="highscore-view" style="margin-top: 30px; font-size: 13px; color: #666;"></div>
+    </div>
+
+    <div id="game-screen" style="display: none;">
+        <div class="battle-view" id="battle-area">
+            <div class="hp-container">
+                <div id="p-name" style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">PLAYER</div>
+                <div class="hp-bar"><div id="p-hp-fill" class="hp-fill" style="background: var(--success);"></div></div>
+                <div id="p-hp-text" style="font-size: 11px; opacity: 0.7;">100/100</div>
+            </div>
+            <div style="align-self: center; font-weight: bold; color: #444;">VS</div>
+            <div class="hp-container">
+                <div style="font-size: 14px; font-weight: bold; margin-bottom: 5px; color: var(--danger);">ARCH-WIZARD</div>
+                <div class="hp-bar"><div id="e-hp-fill" class="hp-fill" style="background: var(--danger);"></div></div>
+                <div id="e-hp-text" style="font-size: 11px; opacity: 0.7;">100/100</div>
+            </div>
+        </div>
+
+        <div id="battle-log" class="log">Bersiaplah di arena...</div>
+
+        <div class="action-zone">
+            <div class="spell-box">
+                <div style="font-size: 10px; color: #666; margin-bottom: 5px;">SERANGAN SIHIR</div>
+                <div id="atk-word" class="word-target"></div>
+                <input type="text" id="atk-input" placeholder="ketik..." autocomplete="off">
+            </div>
+            <div class="spell-box">
+                <div style="font-size: 10px; color: #666; margin-bottom: 5px;">MANTRA PEMULIH</div>
+                <div id="heal-word" class="word-target"></div>
+                <input type="text" id="heal-input" placeholder="ketik..." autocomplete="off">
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 14px;">
+            SKOR: <span id="score-val" style="color: var(--primary); font-weight: bold;">0</span>
+        </div>
+        <button id="btn-menu" style="display:none; margin-top: 20px;" onclick="location.reload()">MENU UTAMA</button>
+    </div>
+</div>
+
+<script>
+    let player = { name: "", hp: 100, maxHp: 100 };
+    let enemy = { hp: 100, maxHp: 100 };
+    let score = 0;
+    let isActive = false;
+    let enemyActionTimer;
+
+    const words = [
+        'transformasi', 'implementasi', 'sinkronisasi', 'akomodasi', 'karakteristik', 
+        'spesialisasi', 'dokumentasi', 'fundamental', 'interpretasi', 'konvensional',
+        'metamorfosis', 'revolusioner', 'kategorisasi', 'infrastruktur', 'multidimensional',
+        'standardisasi', 'dekonstruksi', 'probabilitas', 'signifikansi', 'akreditasi'
+    ];
+
+    window.onload = loadLeaderboard;
+
+    function startGame() {
+        const name = document.getElementById('name-input').value;
+        if(!name) return alert("Siapa namamu, Ksatria?");
+        
+        player.name = name;
+        document.getElementById('p-name').innerText = name.toUpperCase();
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('game-screen').style.display = 'block';
+        
+        initBattle();
+    }
+
+    function initBattle() {
+        player.hp = 100; enemy.hp = 100; score = 0; isActive = true;
+        updateUI();
+        refreshWords();
+        document.getElementById('atk-input').focus();
+        if(enemyActionTimer) clearInterval(enemyActionTimer);
+        enemyActionTimer = setInterval(enemyTurn, 4500);
+    }
+
+    function refreshWords() {
+        document.getElementById('atk-word').innerText = words[Math.floor(Math.random()*words.length)];
+        document.getElementById('heal-word').innerText = words[Math.floor(Math.random()*words.length)];
+    }
+
+    document.getElementById('atk-input').addEventListener('input', function(e) {
+        if(!isActive) return;
+        if(e.target.value.toLowerCase() === document.getElementById('atk-word').innerText) {
+            enemy.hp -= 20; score += 15;
+            triggerHitEffect('battle-area');
+            logAction("Serangan telak! Musuh terguncang.");
+            finalizeTurn(e.target);
+        }
+    });
+
+    document.getElementById('heal-input').addEventListener('input', function(e) {
+        if(!isActive) return;
+        if(e.target.value.toLowerCase() === document.getElementById('heal-word').innerText) {
+            player.hp = Math.min(player.maxHp, player.hp + 15);
+            logAction("Mantra berhasil! Luka pulih sedikit.");
+            finalizeTurn(e.target);
+        }
+    });
+
+    function finalizeTurn(inputEl) {
+        inputEl.value = "";
+        refreshWords();
+        updateUI();
+        checkDeath();
+    }
+
+    function enemyTurn() {
+        if(!isActive) return;
+        if(enemy.hp < 35 && Math.random() > 0.5) {
+            enemy.hp = Math.min(enemy.maxHp, enemy.hp + 12);
+            logAction("Musuh memulihkan energinya...");
+        } else {
+            player.hp -= 12;
+            triggerHitEffect('game-container');
+            logAction("Musuh membalas seranganmu!");
+        }
+        updateUI();
+        checkDeath();
+    }
+
+    function triggerHitEffect(id) {
+        const el = document.getElementById(id);
+        el.classList.remove('hit');
+        void el.offsetWidth; // Trigger reflow
+        el.classList.add('hit');
+    }
+
+    function updateUI() {
+        document.getElementById('p-hp-fill').style.width = player.hp + "%";
+        document.getElementById('e-hp-fill').style.width = enemy.hp + "%";
+        document.getElementById('p-hp-text').innerText = `${Math.max(0, player.hp)}/100`;
+        document.getElementById('e-hp-text').innerText = `${Math.max(0, enemy.hp)}/100`;
+        document.getElementById('score-val').innerText = score;
+    }
+
+    function logAction(msg) {
+        const logEl = document.getElementById('battle-log');
+        logEl.style.opacity = 0;
+        setTimeout(() => {
+            logEl.innerText = msg;
+            logEl.style.opacity = 1;
+        }, 150);
+    }
+
+    function checkDeath() {
+        if(enemy.hp <= 0 || player.hp <= 0) {
+            isActive = false;
+            clearInterval(enemyActionTimer);
+            logAction(enemy.hp <= 0 ? "KEMENANGAN! Musuh telah tumbang." : "KEKALAHAN... Kamu telah gugur.");
+            saveScore();
+            document.getElementById('btn-menu').style.display = 'inline-block';
+        }
+    }
+
+    function saveScore() {
+        let scores = JSON.parse(localStorage.getItem('spellscript_scores')) || [];
+        scores.push({name: player.name, score: score});
+        scores.sort((a,b) => b.score - a.score);
+        localStorage.setItem('spellscript_scores', JSON.stringify(scores.slice(0, 5)));
+    }
+
+    function loadLeaderboard() {
+        let scores = JSON.parse(localStorage.getItem('spellscript_scores')) || [];
+        if(scores.length === 0) return;
+        let html = "<p style='margin-bottom:10px'>LIMA TERBAIK</p>";
+        scores.forEach((s, i) => {
+            html += `<div style="margin: 5px 0;">${i+1}. ${s.name} — <span style="color:#f1c40f">${s.score}</span></div>`;
+        });
+        document.getElementById('highscore-view').innerHTML = html;
+    }
+</script>
                         </div>
                     </div>
                 </div>
